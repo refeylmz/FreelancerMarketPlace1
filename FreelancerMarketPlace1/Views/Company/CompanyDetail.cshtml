@@ -1,0 +1,164 @@
+﻿@model CompanyViewModel
+@{
+    ViewData["Title"] = "CompanyDetail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+    <div class="container">
+        <div class="row align-items-center inner-banner">
+            <div class="col-md-12 col-12 text-center">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/Home/Index"><img src="~/template-html/assets/img/home-icon.svg" alt=""> Ana Sayfa</a></li>
+                            <li class="breadcrumb-item" aria-current="page">ŞİRKET DETAY SAYFASI</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+<!-- Page Content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="developer-box head-develop">
+                    <div class="developer-profile-img">
+                        <img src="assets/img/profile-bg.jpg" alt="" class="img-fluid">
+                        <div class="img-profile">
+                            <img src="@(!string.IsNullOrEmpty(Model?.Company.CompanyImage) ? "/userimages/"+Model.Company.CompanyImage : "/template-html/assets/img/user/avatar-1.jpg")" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <h2> @(!string.IsNullOrEmpty(Model?.Company.CompanyName) ? Model.Company.CompanyName : "Company") <i class="fas fa-check-circle"></i></h2>
+                    <p>
+
+                        @Model.Company.NameSurname
+                        @* <span>
+                        @(!string.IsNullOrEmpty(Model?.Company.WorkModel) ? Model.Company.WorkModel : "Company"
+                        )
+                        </span> *@
+                    </p>
+                    <ul class="develope-list-rate">
+                        <li>
+                            <div class="rating">
+                                <span class="average-rating">4.6 </span>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                            </div>
+                        </li>
+                        <li>Katılma Tarihi</li>
+                        <li class="bl-0"><i class="fa-regular fa-location-dot"> @(!string.IsNullOrEmpty(Model?.Company.MemberbershipDate.ToString()) ? Model.Company.MemberbershipDate : "Haziran 2023")</i></li>
+                    </ul>
+                    @* <div class="proposal-box">
+                    <div class="proposal-value">
+                    <h4>Ücret Beklentisi</h4>
+                    <span>( @(!string.IsNullOrEmpty(Model?.Company.Price.ToString()) ? Model.Company.Price : "") / @(!string.IsNullOrEmpty(Model?.Company.WorkModel) ? Model.Company.WorkModel : "Company") )</span>
+                    </div>
+
+                    </div> *@
+
+                </div>
+                <div class="pro-view develop-view">
+
+                    <!-- Overview Tab Content -->
+                    <div class="pro-post widget-box" id="overview">
+                        <h3 class="pro-title">Açıklama</h3>
+                        <div class="pro-content">
+                            <p>@(!string.IsNullOrEmpty(Model?.Company.Description) ? Model.Company.Description : "")</p>
+                            @*  <div class="mt-4">
+                            <h4 class="widget-title">Hizmetler:</h4>
+                            <ul class="pro-list">
+                            @Model.Company.Bagdet1
+
+                            </ul>
+                            </div> *@
+                        </div>
+                    </div>
+                    <!-- /Overview Tab Content -->
+
+
+                </div>
+            </div>
+
+            <!-- Blog Sidebar -->
+            <div class="col-lg-4 col-md-12 sidebar-right theiaStickySidebar developer-view">
+
+                <!-- About Widget -->
+                <div class="pro-post widget-box about-widget about-field">
+                    <h4 class="pro-title ">Hakkımızda</h4>
+                    <table class="table">
+                        <tbody>
+
+                            <tr>
+                                <td>Tecrübe Süresi</td>
+                                <td>@(!string.IsNullOrEmpty(Model?.Company.ExperienceDuration.ToString()) ? Model.Company.ExperienceDuration : "") Yıl</td>
+                            </tr>
+                            <tr>
+                                <td>Lokasyon</td>
+                                <td>@(!string.IsNullOrEmpty(Model?.Company.City) ? Model.Company.City : "") / @(!string.IsNullOrEmpty(Model?.Company.Country) ? Model.Company.Country : "")</td>
+                            </tr>
+                            @if (Model.IsFreelancer == true)
+                            {
+                                <tr>
+                                    <td><a href="/Message/SendMessage" class="projects-btn">Mesaj Gönder</a></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /About Widget -->
+                <!-- Language Widget -->
+                <!-- /Language Widget -->
+                <!-- Follow Widget -->
+                <!-- /Follow Widget -->
+                <!-- Categories -->
+                <!-- /Categories -->
+                <!-- LInk Widget -->
+                <div class="pro-post widget-box post-widget profile-link">
+                    <h3 class="pro-title">Profile Link</h3>
+                    <div class="pro-content">
+                        <div class="form-group profile-group mb-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" value="https://www.kofejob.com/developer/daren/12454687">
+                                <div class="input-group-append">
+                                    <button class="btn btn-success sub-btn" type="submit"><i class="fa fa-clone"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Link Widget -->
+                <!-- Social Widget -->
+                <div class="pro-post widget-box social-widget develop-social-link">
+                    <div class="profile-head">
+                        <h4 class="pro-title">SOCIAL LINKS</h4>
+                    </div>
+                    <ul class="social-link-profile">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /Social Widget -->
+
+            </div>
+            <!-- /Blog Sidebar -->
+
+        </div>
+
+
+
+    </div>
+</div>
+<!-- /Page Content -->

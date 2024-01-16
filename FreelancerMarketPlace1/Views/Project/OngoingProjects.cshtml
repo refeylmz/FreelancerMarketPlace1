@@ -1,0 +1,112 @@
+﻿@model ProjectViewModel
+
+@{
+    ViewData["Title"] = "OngoingProjects";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>İlan Yönetimi</h3>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="/Project/PostProject" class="btn btn-primary back-btn mb-4">İş İlanı Ver</a>
+        </div>
+    </div>
+</div>
+<nav class="user-tabs project-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+        <li class="nav-item">
+            <a class="nav-link " href="/Project/ProjectAll">Tüm İlanlar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="/Project/Index">Yayındaki İlanlar</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link active" href="/Project/OngoingProjects">Devam Edilen İlanlar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/Project/CompletedProjects">Tamamlanan İlanlar</a>
+        </li>
+
+    </ul>
+</nav>
+
+<!-- project list -->
+<div class="my-projects-list">
+    <div class="row">
+        @foreach (var project in Model.Projects)
+        {
+            <div class="col-lg-10 flex-wrap">
+                <div class="projects-card flex-fill">
+                    <div class="card-body">
+                        <div class="projects-details align-items-center">
+                            <div class="project-info">
+                                <span>@Model.Company.CompanyName</span>
+                                <h2>@project.ProjectName</h2>
+                                <div class="customer-info">
+                                    <ul class="list-details">
+                                        <li>
+                                            <div class="slot">
+                                                <p>Çalışma Şekli</p>
+                                                <h5>Günlük</h5>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="slot">
+                                                <p>Konum</p>
+                                                <h5>@project.City</h5>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="slot">
+                                                <p>İlanın Son Tarihi</p>
+                                                <h5>@project.EndDate</h5>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="project-hire-info">
+                                <div class="content-divider"></div>
+                                <div class="projects-amount">
+                                    <h3>@project.Price ₺ </h3>
+                                    <h5> @project.ProjectDuration Gün</h5>
+                                </div>
+                                <div class="content-divider"></div>
+                                <div class="projects-action text-center">
+                                    <a href="/Project/MyProjectDetail/@project.ProjectID" class="projects-btn">İlan Detayı</a>
+                                    <a href="#" class="hired-detail">İş Alındı</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 d-flex flex-wrap">
+                <div class="projects-card flex-fill">
+                    @foreach(var item in Model.Freelancers)
+                    {
+                        @if(item.FreelancerID==project.FreelancerId)
+                        {
+                            <div class="card-body p-2">
+                                <div class="prj-proposal-count text-center hired">
+                                    <h3>İşi Alan Freelancer</h3>
+                                    <a href="/Freelancer/FreelancerDetail/@item.FreelancerID"><img src="/userimages/@item.UserImage" alt="" class="img-fluid"></a>
+                                    <p class="mb-0">@item.NameSurname</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                   
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+

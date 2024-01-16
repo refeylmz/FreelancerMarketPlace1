@@ -1,0 +1,18 @@
+﻿@model List<FreelancerMarketPlace1.Models.Model.HomeDevelopedProject>
+
+<section class="section work">
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <!-- Feature Item -->
+                <div class="col-md-6 @item.ImageURL">
+                    <div class="work-content aos" data-aos="fade-up">
+                        <h2>@item.Title<span></span></h2>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

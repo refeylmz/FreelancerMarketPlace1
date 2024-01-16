@@ -1,0 +1,91 @@
+﻿@using FreelancerMarketPlace1.Models.Model
+@model FreelancerListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+
+                <!-- Search Filter -->
+                <div class="card search-filter">
+                    <div class="card-header d-flex justify-content-between">
+                        <h4 class="card-title mb-0">Filtreleme</h4>
+                        <a href="/Freelancer/Index">Filtreleri Kaldır</a>
+                    </div>
+                    <form method="get">
+                        <div class="card-body">
+                            <div class="filter-widget">
+                                <h4>Yetenek</h4>
+                                <div class="form-group">
+                                    <select class="form-control select" name="bagdetName">
+                                        <option>Seçiniz</option>
+                                        @foreach (var item in Model.Bagdets)
+                                        {
+                                            <option value="@item.BagdetName">@item.BagdetName</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="btn-search">
+                                <button type="submit" class="btn btn-block">Filtrele</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /Search Filter -->
+            </div>
+            <div class="col-md-12 col-lg-8 col-xl-9">
+                @*   <div class="sort-tab develop-list-select">
+                <div class="row align-items-center">
+                </div>
+                </div> *@
+                <div class="row">
+                    @foreach (var freelancer in Model.Freelancer)
+                    {
+                        <div class="col-md-6 col-lg-6 col-xl-4">
+                            <div class="freelance-widget">
+                                <div class="freelance-content">
+                                    <a data-bs-toggle="modal" href="#rating" class="favourite"><i class="fas fa-star"></i></a>
+                                    <div class="freelance-img">
+                                        <a href="company-profile.html">
+                                            <img src="/userimages/@freelancer.UserImage" alt="User Image">
+                                            <span class="verified"><i class="fas fa-check-circle"></i></span>
+                                        </a>
+                                    </div>
+                                    <div class="freelance-info">
+                                        <h3><a href="company-profile.html">@freelancer.NameSurname</a></h3>
+                                        <div class="freelance-specific">@freelancer.Title</div>
+                                        <div class="freelance-location"><i class="fas fa-map-marker-alt me-1"></i>@freelancer.Notification</div>
+                                        <div class="rating">
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star filled"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="average-rating">@freelancer.Rating (32)</span>
+                                        </div>
+                                        <div class="freelance-tags">
+                                            <a href="javascript:void(0);"><span class="badge badge-pill badge-design">@freelancer.Bagdet1</span></a>
+                                        </div>
+                                        <div class="freelancers-price">@freelancer.Price₺ / @freelancer.WorkModel</div>
+                                    </div>
+                                </div>
+                                <div class="cart-hover">
+                                    <a href="/Freelancer/FreelancerDetail/@freelancer.FreelancerID" class="btn-cart" tabindex="-1">İncele</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

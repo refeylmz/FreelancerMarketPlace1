@@ -1,0 +1,198 @@
+﻿@model ProjectDetailViewModel
+@{
+    ViewData["Title"] = "ProjectDetail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+    /* Modal üzerindeki buton rengi */
+    .btn-orange {
+        background-color: #FE4A23;
+        color: #fff;
+    }
+
+    .text-orange {
+        color: #FE4A23;
+    }
+
+        .text-orange:hover {
+            color: #6e727d;
+        }
+</style>
+<div class="content content-page">
+    <div class="container-fluid">
+        <div class="row mx-5">
+
+
+            <!-- /sidebar -->
+
+            <div class="col-lg-12 col-md-12">
+
+
+                <!-- project list -->
+                <div class="my-projects">
+
+
+                    <!-- project list -->
+                    <div class="my-projects-list pro-list-view">
+                        <div class="row">
+                            <div class="col-12 flex-wrap">
+                                <div class="projects-card flex-fill">
+                                    <div class="card-body">
+                                        <div class="projects-details align-items-center">
+                                            <div class="project-info">
+                                                <h2><a href="/Company/CompanyDetail/@Model.Company.CompanyID" class="text-orange ">@Model.Company.CompanyName</a> | @Model.Project.ProjectName</h2>
+                                                <div class="customer-info">
+                                                    <ul class="list-details">
+                                                        <li>
+                                                            <div class="slot">
+                                                                <p>Çalışma Şekli</p>
+                                                                <h5>@Model.Project.PriceType</h5>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="slot">
+                                                                <p>Konum</p>
+                                                                <h5>@Model.Project.City-@Model.Project.Country</h5>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="slot">
+                                                                <p>İlanın Kaldırılma Tarihi</p>
+                                                                <h5>@(!string.IsNullOrEmpty(Model?.Project.EndDate.ToString()) ? ((DateTime)Model?.Project.EndDate).ToString("dd.MM.yyyy") : "11.12.2023")</h5>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="project-hire-info">
+                                                <div class="content-divider"></div>
+                                                <div class="projects-amount">
+                                                    <h3>@Model.Project.Price ₺</h3>
+                                                    <h5>@Model.Project.ProjectDuration @Model.Project.PriceType</h5>
+                                                </div>
+                                                <div class="content-divider"></div>
+                                                <div class="projects-action text-center">
+                                                    @if (Model.IsFreelancer == false)
+                                                    {
+
+                                                        <button type="submit" id="basvur" class="btn-cart">İşe Başvur</button>
+
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Model.IsFreelancerApproved == false)
+                                                        {
+                                                            <form method="post" asp-controller="Project" asp-action="ApplyProject">
+                                                                <input type="hidden" name="projectId" value="@Model.Project.ProjectID" />
+                                                                <button type="submit" class="btn-cart">İşe Başvur</button>
+                                                            </form>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button type="button" class="btn-cart" style="background:#131135;">İşe Başvuruldu</button>
+                                                        }
+
+                                                    }
+
+                                                    @if (!string.IsNullOrEmpty(ViewBag.successMessage))
+                                                    {
+                                                        <p class="text-success">
+                                                            @ViewBag.successMessage
+                                                        </p>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(ViewBag.againMessage))
+                                                    {
+                                                        <p class="text-secondary">
+                                                            @ViewBag.againMessage
+                                                        </p>
+                                                    }
+                                                    @* <a href="#" class="hired-detail">19 JUN 2021</a> *@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @* <div class="col-lg-2 d-flex flex-wrap">
+                            <div class="projects-card flex-fill">
+                            <div class="card-body">
+                            <div class="prj-proposal-count text-center hired">
+                            <img src="assets/img/developer/developer-01.jpg" alt="" class="img-fluid">
+                            <p class="mb-2">Hannah Finn</p>
+                            <a href="chats.html" class="btn btn-chat">Chat Now</a>
+                            </div>
+                            </div>
+                            </div>
+                            </div> *@
+                        </div>
+                    </div>
+                    <!-- /project list -->
+
+                </div>
+
+                <div class="pro-post widget-box">
+                    <h3 class="pro-title">İlan Açıklaması</h3>
+                    <div class="pro-overview">
+                        <div class="pro-content">
+                            <div class="tags">
+                                <span class="badge badge-pill badge-design">@Model.Project.SkillCalledSt</span>
+
+                            </div>
+                        </div>
+                        <p>@Model.Project.Description</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- project list -->
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                @* <h5 class="modal-title">Merhaba</h5>  *@
+                <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <p>İşe Başvurabilmek İçin Freelancer Olarak Giriş Yapmalısınız.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-orange" onclick="redirect()">Giriş Yap</button>
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">İptal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Modal'ı açma fonksiyonu
+    function openModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'block';
+    }
+
+    // Modal'ı kapatma fonksiyonu
+    function closeModal() {
+        var modal = document.getElementById('myModal');
+        modal.style.display = 'none';
+    }
+
+    // Giriş yap butonuna tıklandığında yapılacak işlemler
+    function redirect() {
+        // Buraya giriş yapılacak URL'yi belirtin
+        window.location.href = '/Account/SignIn';
+    }
+
+    // İşe başvur düğmesine tıklanınca modalı aç
+    document.getElementById('basvur').addEventListener('click', openModal);
+</script>

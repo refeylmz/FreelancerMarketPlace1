@@ -1,0 +1,44 @@
+﻿@model MessageViewModel
+@{
+    ViewData["Title"] = "Sendbox";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="pro-title without-border">Giden Kutusu</h3>
+    </div>
+    <div class="card-body">
+        <div class="reviews">
+
+            @foreach (var item in Model.Messages)
+            {
+                <div class="review-content no-padding">
+                    @foreach (var user in Model.Users)
+                    {
+                        @if (user.Id == item.ReceiverID)
+                        {
+                            <h4>@user.Name @user.Surname</h4>
+
+                        }
+                    }
+                    <div class="rating">
+                        <span class="average-rating">@(((DateTime)item.MessageDate).ToString("dd.MM.yyyy"))</span>
+                        @*  <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star filled"></i>
+                    <i class="fas fa-star"></i> *@
+                    </div>
+                    <p class="my-2 text-bold"><b>Konu: </b>@item.Subject</p>
+                    <p class="mb-0"><b>Mesaj: </b>@item.MessageDetails</p>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
+
+
+

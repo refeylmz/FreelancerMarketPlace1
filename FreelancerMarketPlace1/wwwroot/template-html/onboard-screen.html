@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+		<title>KofeJob</title>
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+				
+		<!-- Fontawesome CSS -->
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+		
+		<!-- Fancybox CSS -->
+		<link rel="stylesheet" href="assets/plugins/fancybox/jquery.fancybox.min.css">
+		
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>		
+	<body>
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">
+			
+			<!-- Page Wrapper -->
+			<div class="page-wrapper board-screen">
+				<div class="content container-fluid">
+					<div class="acc-content">
+						
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="multistep-form"> 
+										
+									<!-- Freelancer Multistep -->
+									<div class="multistep-progress" id="freelance_step">
+										<div class="first-progress" >
+											<div class="board-logo">
+												<a href="index.html"><img src="assets/img/logo-01.png" alt="" class="img-fluid" ></a>
+											</div>
+											<ul id="progressbar" class="progressbar">
+												<li class="progress-active">
+													<div class="multi-step">1</div>										
+													<h5>Account Type</h5>
+												</li>
+												<li class="">
+													<div class="multi-step">2</div>		
+													<h5>Personal info</h5>
+												</li>
+												<li class="">
+													<div class="multi-step">3</div>		
+													<h5>Professional info</h5>
+												</li>
+												<li class="">
+													<div class="multi-step">4</div>		
+													<h5>Other Info</h5>
+												</li>
+											</ul>
+											<div class="progress-info">
+												<h5>Completion rate</h5>
+												<div class="progress-25">
+													<div class="d-flex align-items-center">
+														<div class="progress">
+															  <div class="progress-bar" role="progressbar" aria-valuenow="25"
+															  aria-valuemin="0" aria-valuemax="100" >
+															  </div>
+														</div>
+														<p>25%</p>
+													</div>
+												</div>
+												<div class="progress-50">
+													<div class="d-flex align-items-center">
+														<div class="progress">
+															  <div class="progress-bar" role="progressbar" aria-valuenow="50"
+															  aria-valuemin="0" aria-valuemax="100" >
+															  </div>
+														</div>
+														<p>50%</p>
+													</div>
+												</div>
+												<div class="progress-75">
+													<div class="d-flex align-items-center">
+														<div class="progress">
+															  <div class="progress-bar" role="progressbar" aria-valuenow="75"
+															  aria-valuemin="0" aria-valuemax="100" >
+															  </div>
+														</div>
+														<p>75%</p>
+													</div>
+												</div>
+												<div class="progress-100">
+													<div class="d-flex align-items-center">
+														<div class="progress">
+															  <div class="progress-bar" role="progressbar" aria-valuenow="100"
+															  aria-valuemin="0" aria-valuemax="100" >
+															  </div>
+														</div>
+														<p>100%</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- /Freelancer Multistep -->
+									
+									<!-- Accounting Onboard -->
+									<div  class="text-center on-board select-account group-select">
+										<div class="select-type">
+											<div class="account-onborad onboard-head">
+												<h2>Select Account Type</h2>
+												<p>Don’t worry, this can be changed later.</p>
+												<div class="select-box d-flex justify-content-center">
+													<input checked="checked" id="freelance"   type="radio" name="credit-card" value="visa" />
+													<label class="employee-level free-lance-img accounts_type" data-id="freelance" for="freelance"><a href="onboard-screen.html"  ><img src="assets/img/select-04.png" alt="" class="img-fluid" ><span>Freelancer</span></a></label>
+													<input id="employee" class="accounts_type"  type="radio" name="credit-card" value="mastercard" />
+													<label class="employee-level employee-img accounts_type" data-id="employee" for="employee"><a href="onboard-screen-employer.html"  ><img src="assets/img/select-05.png" alt="" class="img-fluid" ><span>Employer</span></a></label>
+												</div>
+											</div>
+											<input class="btn next_btn btn-primary btn-get" name="next" type="button" value="Next">
+										</div>
+									</div>
+									<!-- /Accounting Onboard -->
+									
+									
+									<!-- Personal Info -->
+									<div class="on-board field-card select-account select-btn">
+										<div class="text-center onboard-head">
+											<h2>Personal Info</h2>
+											<p>Tell a bit about yourself. This information will appear on your public profile, so that potential buyers can get to know you better.</p>
+										</div>
+										<div class="field-item personal-info space-info">
+											<form>
+												<div class="row">
+													<div class="col-md-12 col-lg-2 col-xl-2">
+														<label class="focus-label">Name <span>*</span></label>
+													</div>
+													<div class="col-md-6 col-lg-5 col-xl-5">
+														<div class="form-group">
+															<label>First Name</label>
+															<input type="text" class="form-control" value="Eugene">
+														</div>
+													</div>
+													<div class="col-md-6 col-lg-5 col-xl-5">
+														<div class="form-group">
+															<label>Last Name</label>
+															<input type="text" class="form-control" value="Forest">
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-2 col-xl-2">
+														<label class="focus-label">Profile picture <span>*</span></label>
+													</div>
+													<div class="col-md-12 col-lg-10 col-xl-10">
+														<div class="pro-form-img">
+															<img src="assets/img/user/avatar-3.jpg" alt="User Image">
+															<label class="file-upload image-upbtn ">
+																Upload Avator <input type="file">
+															</label>
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-2 col-xl-2">
+														<label class="focus-label">Contact Details <span>*</span></label>
+													</div>
+													<div class="col-md-6 col-lg-5 col-xl-5">
+														<div class="form-group">
+															<label>Phone Number</label>
+															<input type="text" class="form-control" value="+33 43685825" >
+														</div>
+													</div>
+													<div class="col-md-6 col-lg-5 col-xl-5">
+														<div class="form-group">
+															<label>Email Address</label>
+															<input type="text" class="form-control" value="eugeneforest@example.com">
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-2 col-xl-2">
+														<label class="focus-label">Description <span>*</span></label>
+													</div>
+													<div class="col-md-12 col-lg-10 col-xl-10">
+														<div class="form-group min-characters">
+															<textarea class="form-control" rows="5" ></textarea>
+															<p>Min 150 characters</p>
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-2 col-xl-2">
+														<label class="focus-label">Description <span>*</span></label>
+													</div>
+													<div class="col-md-12 col-lg-10 col-xl-10">
+														<div class="row">
+															<div class="col-md-4 col-lg-4 col-xl-4">
+																<div class="form-group description-group">
+																	<label>Language</label>
+																	<input type="text" class="form-control" value="English">
+																</div>
+															</div>
+															<div class="col-md-4 col-lg-4 col-xl-4">
+																<div class="form-group description-group">
+																	<label>Level</label>
+																	<select name="price" class="form-control select-level" id="business-type">
+																		<option value="Individual" selected>Choose Level</option>
+																		<option value="">Basic</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-4 col-lg-4 col-xl-4">
+																<div class="new-addd">
+																	<a  id="new_add" class="add-new"><i class="fas fa-plus "></i> Add New</a>
+																</div>
+															</div>
+															<div id="add_row"></div>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="text-center">
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="submit" value="Next">
+										</div>
+									</div>
+									<!-- /Personal Info -->
+									
+									<!-- Professional Info -->
+									<div class="on-board field-card select-account select-btn">
+										<div class="text-center onboard-head">
+											<h2>Professional info</h2>
+											<p>This is your time to shine. Let potential buyers know what you do best and how you gained your skills, certifications and experience</p>
+										</div>
+										<div class="field-item personal-info space-info">
+											<div id="individual">
+												<div class="row">
+													<div class="col-md-12 col-lg-2">
+														<label class="focus-label">Skill <span>*</span></label>
+													</div>
+													<div class="col-md-4 col-lg-3">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Ex : UI UX Design">
+														</div>
+													</div>
+													<div class="col-md-4 col-lg-3">
+														<div class="form-group">
+															<select name="price" class="form-control select-level">
+																<option value="">Intermediate</option>
+																<option value="" >Medium</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-4 col-lg-4">
+														<div class="new-addd">
+															<a class="add-new" id="skill_add"><i class="fas fa-plus"></i> Add New</a>
+														</div>
+													</div>
+													<div id="skill_add_row"></div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2">
+														<label class="focus-label">Education</label>
+													</div>
+													<div class="col-md-2 col-lg-1">
+														<div class="form-group">
+															<select name="price" class="form-control select-level select-edu">
+																<option value="0">India</option>
+																<option value="1" >Chinna</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<select name="price" class="form-control select-level">
+																<option value="0">College/University Name</option>
+																<option value="1" >University Name</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-3">
+														<div class="form-group">
+															<select name="price" class="form-control select-level">
+																<option value="0">Intermediate</option>
+																<option value="1" >Average</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-2 col-lg-1">
+														<div class="form-group">
+															<select name="price" class="form-control select-level select-edu">
+																<option value="0">Year</option>
+																<option value="1" >2012</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-2">
+														<div class="new-addd">
+															<a class="add-new" id="edu_add"><i class="fas fa-plus"></i> Add New</a>
+														</div>
+													</div>
+													<div id="education_add_row"></div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2">
+														<label class="focus-label">Certification </label>
+													</div>
+													<div class="col-md-4 col-lg-3">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Certification or Award">
+														</div>
+													</div>
+													<div class="col-md-4 col-lg-3">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Certified from (e.g. Adobe)">
+														</div>
+													</div>
+													<div class="col-md-2">
+														<div class="form-group">
+															<select name="price" class="form-control select-level">
+																<option value="0">Year</option>
+																<option value="1" >2012</option>
+															</select>
+														</div>
+													</div>
+													<div class="col-md-2">
+														<div class="new-addd">
+															<a class="add-new" id="certify_add"><i class="fas fa-plus"></i> Add New</a>
+														</div>
+													</div>
+													<div id="certify_add_row"></div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2">
+														<label class="focus-label">Experiance </label>
+													</div>
+													<div class="col-md-10 col-lg-8">
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																	<input type="text" class="form-control" placeholder="Enter your position or title">
+																</div>
+															</div>
+															<div class="col-md-6">
+																<div class="form-group">
+																	<input type="text" class="form-control" placeholder="Enter company name">
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-3 d-flex align-items-end">
+																<div class="form-group">
+																	<label>Start</label>
+																	<select name="price" class="form-control select-level">
+																		<option value="">Select Month</option>
+																		<option value="" >1</option>
+																		<option value="" >2</option>
+																		<option value="" >3</option>
+																		<option value="" >4</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-3 d-flex align-items-end">
+																<div class="form-group">
+																	<select name="price" class="form-control select-level">
+																		<option value="0">Select Year</option>
+																		<option value="1" >2012</option>
+																		<option value="1" >2013</option>
+																		<option value="1" >2014</option>
+																		<option value="1" >2015</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-3 d-flex align-items-end">
+																<div class="form-group">
+																	<label>End</label>
+																	<select name="price" class="form-control select-level">
+																		<option value="">Select Month</option>
+																		<option value="" >1</option>
+																		<option value="" >2</option>
+																		<option value="" >3</option>
+																		<option value="" >4</option>
+																	</select>
+																</div>
+															</div>
+															<div class="col-md-3 d-flex align-items-end">
+																<div class="form-group">
+																	<select name="price" class="form-control select-level">
+																		<option value="0">Select Year</option>
+																		<option value="1" >2012</option>
+																		<option value="1" >2013</option>
+																		<option value="1" >2014</option>
+																		<option value="1" >2015</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-2">
+														<div class="new-addd">
+															<a class="add-new" id="experience_add"><i class="fas fa-plus"></i> Add New</a>
+														</div>
+													</div>
+													<div id="experience_add_row"></div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2"></div>
+													<div class="col-md-12 col-lg-10">
+														<div class="form-group workin-check">
+															<input class="form-check-input" type="checkbox" name="remember"> I'm currently working here
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2"></div>
+													<div class="col-md-10 col-lg-8">
+														<div class="form-group min-characters">
+															<textarea class="form-control" rows="5" ></textarea>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12 col-lg-2">
+														<label class="focus-label">Personal website </label>
+													</div>
+													<div class="col-md-10 col-lg-8">
+														<div class="form-group">
+															<input type="text" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="text-center">
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">									
+											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button" value="Next">
+										</div>
+									</div>
+									<!-- /Professional info -->
+
+									<!-- Other Info -->
+									<div class="on-board field-card select-account select-btn">
+										<div class="text-center onboard-head">
+											<h2>Other info</h2>
+											<p>Don’t worry, this can be changed later.</p>
+										</div>
+										<div class="field-item personal-info">
+											<div id="individual-doc">
+												<div class="row">
+													<div class="col-md-12 col-lg-3 col-xl-2">
+														<label class="focus-label">Facebook Link </label>
+													</div>
+													<div class="col-md-12 col-lg-9 col-xl-9">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Enter Facebook profile Link">
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-3 col-xl-2">
+														<label class="focus-label">Instagram Link </label>
+													</div>
+													<div class="col-md-12 col-lg-9 col-xl-9">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Enter Instagram profile Link">
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-3 col-xl-2">
+														<label class="focus-label">Linkedin Link </label>
+													</div>
+													<div class="col-md-12 col-lg-9 col-xl-9">
+														<div class="form-group">
+															<input type="text" class="form-control" placeholder="Enter Linkedin profile Link">
+														</div>
+													</div>
+													<div class="col-md-12 col-lg-3 col-xl-2">
+														<label class="focus-label">Working Hours</label>
+													</div>
+													<div class="col-md-12 col-lg-9 col-xl-9">
+														<div class="form-group working-position">
+															<input type="text" class="form-control" placeholder="Same every day">
+															<div class="form-check form-switch d-inline-block work-check">
+																<input type="checkbox" class="form-check-input" id="check_hour" checked >
+															</div>
+														</div>
+														<div class="checkout-hour">
+															<div class="other-info-list">
+																<ul>
+																	<li class="active-hour">Mon</li>
+																	<li class="active-hour">Tue</li>
+																	<li class="active-hour">Wed</li>
+																	<li class="active-hour">Thr</li>
+																	<li class="active-hour">Fri</li>
+																	<li>Sat</li>
+																	<li>Sun</li>
+																</ul>
+															</div>
+															<div class="time-box d-flex">
+																<div class="form-group mb-0">
+																	<input type="text" class="form-control" Value="8:00">
+																</div>
+																<div class="form-group mb-0">
+																	<input type="text" class="form-control" Value="20:00">
+																</div>
+															</div>
+														</div>
+														<div class="check-hour">
+															<div class="row">
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li class="active-hour">Mon</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li class="active-hour">Tue</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li class="active-hour">Wed</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li class="active-hour">Tht</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li class="active-hour">Fri</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li>Sat</li>
+																			</ul>
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+																<div class="col-md-6 col-xl-5">
+																	<div class="time-box d-flex">
+																		<div class="other-info-list">
+																			<ul>
+																				<li>Sun</li>
+																			</ul>
+																		</div>
+																		<div class="form-group mb-0">
+																			<input type="text" class="form-control" Value="8:00">
+																		</div>
+																		<div class="form-group mb-0">
+																			<input type="text" class="form-control" Value="20:00">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="text-center">
+											<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back">
+											<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button" value="Submit">
+										</div>
+									</div>	
+									<!-- /Other Info -->
+									
+									<!-- Completeing Register -->
+									<div class="on-board field-card">
+										<div class="account-onborad complte-board back-home">
+											<img src="assets/img/select-03.png" class="img-fluid" alt="icon">
+											<h2>Hi, Eugene Forest</h2>
+											<p>Your onboarding process has been successfully completed. Please check your registered email for other information.</p>
+											<a href="onboard-screen.html" class="btn btn-primary"> Back to Home</a>
+										</div>
+									</div>
+									<!-- /Completeing Register -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Page Wrapper -->
+		   
+		</div>
+		<!-- /Main Wrapper -->
+	  
+		<!-- jQuery -->
+		<script src="assets/js/jquery-3.6.1.min.js"></script>
+		
+		<!-- Bootstrap Bundle JS -->
+		<script src="assets/js/bootstrap.bundle.min.js"></script>
+		
+		<!-- Progress JS -->
+		<script src="assets/js/circle-progress.min.js"></script>
+		
+		<!-- Select2 JS -->
+		<script src="assets/plugins/select2/js/select2.min.js"></script>
+		
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>		
+		
+	</body>
+</html>

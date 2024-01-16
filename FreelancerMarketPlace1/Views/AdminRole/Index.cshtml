@@ -1,0 +1,48 @@
+﻿@model List<AppRole>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading mt-3">
+    <div class="col-lg-10">
+        <h2>Rol Listesi</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Başlık </th>
+                                    <th>Düzenle</th>
+                                    <th>Sil</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td><strong>@item.Name</strong></td>
+                                        <td><a href="/AdminRole/UpdateRole/@item.Id" class="btn btn-success"><i class="fa fa-wrench"></i></a></td>
+                                        <td><a href="/AdminRole/DeleteRole/@item.Id" class="btn btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz?')"><i class="fa fa-times"></i></a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/AdminRole/AddRole" class="btn btn-primary mt-2">Yeni Rol Ekle!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,230 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>KofeJob</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/template-html/assets/img/favicon.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/bootstrap.min.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="~/template-html/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/css/animate.css">
+
+    <!-- Aos CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/aos/aos.css">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/select2/css/select2.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/style.css">
+</head>
+<body class="home-page bg-one">
+
+@*     <!-- Loader -->
+    <div id="global-loader">
+        <div class="whirly-loader"> </div>
+        <div class="loader-img">
+            <img src="~/template-html/assets/img/load-icon.svg" class="img-fluid" alt="">
+        </div>
+    </div>
+    <!-- Loader --> *@
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Start Navigation -->
+        <!-- Header -->
+        <header class="header sticky">
+            <nav class="navbar navbar-expand-lg header-nav">
+                <div class="navbar-header">
+                    <a id="mobile_btn" href="javascript:void(0);">
+                        <span class="bar-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </a>
+                    <a href="/Home/Index" class="navbar-brand logo">
+                        <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                    </a>
+                </div>
+                <div class="main-menu-wrapper">
+                    <div class="menu-header">
+                        <a href="/Home/Index" class="menu-logo">
+                            <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                        </a>
+                        <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                    <ul class="main-nav">
+                        <li class="active has-submenu">
+                            <a href="/Home/Index">Ana Sayfa</a>
+
+                        </li>
+                        <li class="has-submenu">
+                            <a href="">For Employers <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="/Freelancer/Index">Freelancer</a></li>
+                                <li><a href="/Project/Dashboard">Dashboard</a></li>
+                                <li><a href="/MyProfile/Index">My Profile</a></li>
+                                <li><a href="/Project/Index">Projects</a></li>
+                                <li><a href="/Project/Milestone">Milestones</a></li>
+                                <li><a href="/Project/Review">Review</a></li>
+                                <li><a href="~/template-html/chats.html">Chats</a></li>
+                                <li><a href="/Project/Payment">Payments</a></li>
+                                <li><a href="~/template-html/profile-settings.html">Settings</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="">For Freelancer <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="~/template-html/project.html">Projects</a> </li>
+                                <li><a href="/Project/Dashboard">Dashboard</a></li>
+                                <li><a href="/MyProfile/Index">My Profile</a></li>
+                                <li><a href="~/template-html/freelancer-project-proposals.html">Projects</a></li>
+                                <li><a href="~/template-html/freelancer-change-password.html">Change Password</a></li>
+                                <li><a href="/Project/Review">Review</a></li>
+                                <li><a href="~/template-html/freelancer-chats.html">Chats</a></li>
+                                <li><a href="/Project/Payment">Payments</a></li>
+                                <li><a href="~/template-html/freelancer-profile-settings.html">Settings</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="/HomeAbout/Index">Hakkımızda</a>
+
+                        </li>
+
+                        <li>
+                            <a href="/Admin/Index" target="_blank">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="nav header-navbar-rht reg-head">
+                    <li><a href="~/template-html/register.html" class="reg-btn"><img src="~/template-html/assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Kayıt Ol</a></li>
+                    <li><a href="~/template-html/login.html" class="log-btn"><img src="~/template-html/assets/img/icon/lock-icon.svg" class="me-1" alt="icon"> Giriş Yap</a></li>
+                    <li><a href="/Project/PostProject" class="login-btn">İş İlanı Ver </a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- /Header -->
+
+        <div class"content">
+            @RenderBody()
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-top aos" data-aos="fade-up">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-xl-3 col-md-6">
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">KofeJobs</h2>
+                                <ul>
+                                    <li><a href="/HomeAbout/Index"><i class="fas fa-angle-right me-1"></i>Hakkımızda</a></li>
+                                    <li><a href="/Account/SignIn"><i class="fas fa-angle-right me-1"></i>Giriş Yap</a></li>
+                                    <li><a href="/Account/SignUp"><i class="fas fa-angle-right me-1"></i>Kayıt Ol</a></li>
+                                    <li><a href="~/template-html/forgot-password.html"><i class="fas fa-angle-right me-1"></i>Şifremi Unuttum</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Help & Support</h2>
+                                <ul>
+                                    <li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Browse Candidates</a></li>
+                                    <li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Employers Dashboard</a></li>
+                                    <li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Job Packages</a></li>
+                                    <li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Jobs Featured</a></li>
+                                    <li><a href="javascript:;"><i class="fas fa-angle-right me-1"></i>Post A Job</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-md-6">
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Diğer Linkler</h2>
+                                <ul>
+                                    <li><a href="~/template-html/freelancer-dashboard.html"><i class="fas fa-angle-right me-1"></i>Freelancerlar</a></li>
+                                    <li><a href="~/template-html/freelancer-portfolio.html"><i class="fas fa-angle-right me-1"></i>Freelancer Detayları</a></li>
+                                    <li><a href="~/template-html/project.html"><i class="fas fa-angle-right me-1"></i>Projeler</a></li>
+                                    <li><a href="~/template-html/project-details.html"><i class="fas fa-angle-right me-1"></i>Proje Detayları</a></li>
+                                    <li><a href="~/template-html/post-project.html"><i class="fas fa-angle-right me-1"></i>İş İlanı Ver</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /Footer Top -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 ">
+                                <div class="footer-bottom-logo">
+                                    <a href="/Home/Index" class="menu-logo">
+                                        <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /Copyright -->
+                </div>
+            </div>
+            <!-- /Footer Bottom -->
+        </footer>
+        <!-- /Footer -->
+
+    </div>
+    <!-- /Main Wrapper -->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="ti-angle-up"><img src="~/template-html/assets/img/icon/top-icon.svg" class="img-fluid" alt=""></span>
+    </button>
+    <!-- jQuery -->
+    <script src="~/template-html/assets/js/jquery-3.6.1.min.js"></script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="~/template-html/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="~/template-html/assets/js/owl.carousel.min.js"></script>
+
+    <!-- counterup JS -->
+    <script src="~/template-html/assets/js/jquery.waypoints.js"></script>
+    <script src="~/template-html/assets/js/jquery.counterup.min.js"></script>
+
+    <!-- Aos -->
+    <script src="~/template-html/assets/plugins/aos/aos.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="~/template-html/assets/plugins/select2/js/select2.min.js"></script>
+
+    <!-- Slick JS -->
+    <script src="~/template-html/assets/js/slick.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/template-html/assets/js/script.js"></script>
+</body>
+</html>

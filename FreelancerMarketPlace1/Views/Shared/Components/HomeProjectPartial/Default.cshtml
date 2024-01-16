@@ -1,0 +1,43 @@
+﻿@model List<Bagdet>
+
+<section class="section projects">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 mx-auto">
+                <div class="section-header text-center aos" data-aos="fade-up">
+                    <p>İş Başvurusu Yapabileceğiniz Alanlar</p>
+                    <h2 class="header-title">
+                        Bünyemizde bulabileceğiniz iş kolları
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--- Project Item  -->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="project-item aos" data-aos="fade-up">
+                        <div class="project-img">
+                            <a href="/Project/ProjectList/?skillName=@item.BagdetName"><img src="@item.ImageUrl" alt="" class="img-fluid"></a>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="project-content">
+                                <h5><a href="/Project/ProjectList/?skillName=@item.BagdetName">@item.BagdetName</a></h5>
+                            </div>
+                            <div class="pro-icon">
+                                <div class="project-icon"></div>
+                            </div>
+                            @*  <div class="project-content">
+                        <h4>20</h4>
+                        <h5><a href="/Freelancer/Index">Freelancer</a></h5>
+                        </div> *@
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--- /Project Item  -->
+            <!--- Project Item  -->
+        </div>
+    </div>
+</section>

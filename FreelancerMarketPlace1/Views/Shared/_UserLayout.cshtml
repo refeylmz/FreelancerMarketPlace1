@@ -1,0 +1,251 @@
+﻿@using FreelancerMarketPlace1.Models.Model
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@{
+    Layout = null;
+    var user = await UserManager.GetUserAsync(User);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>KofeJob</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/template-html/assets/img/favicon.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/bootstrap.min.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/css/owl.theme.default.min.css">
+
+    <link rel="stylesheet" href="~/template-html/assets/css/animate.min.css">
+    <link rel="stylesheet" href="~/template-html/assets/css/animate.css">
+
+    <!-- Aos CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/aos/aos.css">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/plugins/select2/css/select2.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/style.css">
+
+
+    <!-- Feather CSS -->
+    <link rel="stylesheet" href="~/template-html/assets/css/feather.css">
+</head>
+<body class="home-page bg-one">
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Start Navigation -->
+        <!-- Header -->
+        <header class="header sticky">
+            <nav class="navbar navbar-expand-lg header-nav">
+                <div class="navbar-header">
+                    <a id="mobile_btn" href="javascript:void(0);">
+                        <span class="bar-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </a>
+                    <a href="/Home/Index" class="navbar-brand logo">
+                        <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                    </a>
+                </div>
+                <div class="main-menu-wrapper">
+                    <div class="menu-header">
+                        <a href="/Home/Index" class="menu-logo">
+                            <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                        </a>
+                        <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                    <ul class="main-nav">
+                        <li class="active has-submenu">
+                            <a href="/Home/Index">Ana Sayfa</a>
+
+                        </li>
+                        <li class="has-submenu"><a href="/HomeAbout/Index">Hakkımızda</a></li>
+                        <li class="has-submenu"><a href="/Project/ProjectList">İlanlar</a></li>
+                        @if (SignInManager.IsSignedIn(User) && user != null && user.IsCompany)
+                        {
+                            <li class="has-submenu">
+                                <a href="">Şirket <i class="fas fa-chevron-down"></i></a>
+                                <ul class="submenu">
+                                    <li><a href="/Project/Dashboard">Dashboard</a></li>
+                                    <li><a href="/Company/CompanyDetail">Profilim</a></li>
+                                    <li><a href="/Freelancer/Index">Freelancer</a></li>
+                                    <li><a href="/Project/ProjectAll">İlanlarım</a></li>
+                                    <li><a href="/Company/UpdateCompany">Ayarlar</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                        @if (SignInManager.IsSignedIn(User) && user != null && user.IsFreelancer)
+                        {
+                            <li class="has-submenu">
+                                <a href="">Freelancer<i class="fas fa-chevron-down"></i></a>
+                                <ul class="submenu">
+                                    <li><a href="/Freelancer/Dashboard">Dashboard</a></li>
+                                    <li><a href="/Freelancer/FreelancerDetail">Profilim</a></li>
+                                    <li><a href="/Freelancer/MyAppliedProject">Projelerim</a> </li>
+                                    <li><a href="/Freelancer/UpdateFreelancer">Ayarlar</a></li>
+                                </ul>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li>
+                                <a href="/Admin/Index" target="_blank">Admin</a>
+                            </li>
+                        }
+
+                        @if (SignInManager.IsSignedIn(User) && user != null && user.IsCompany)
+                        {
+                            <li>
+                                <a href="/Project/PostProject" class="signout-btn" style="color :#FE4A23">İş İlanı Ver </a>
+                            </li>
+
+                        }
+
+                    </ul>
+                </div>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Account/LogOut" class="nav-link"> <i class="material-icons">power_settings_new</i> Çıkış Yap</a>
+                }
+                else
+                {
+                    <ul class="nav header-navbar-rht reg-head">
+                        <li><a href="/Account/SignUp" class="reg-btn"><img src="~/template-html/assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Kayıt Ol</a></li>
+                        <li><a href="/Account/SignIn" class="log-btn"><img src="~/template-html/assets/img/icon/lock-icon.svg" class="me-1" alt="icon"> Giriş Yap</a></li>
+                    </ul>
+                }
+            </nav>
+        </header>
+        <!-- /Header -->
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title"></h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Header -->
+                @RenderBody()
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-top aos" data-aos="fade-up">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">KofeJobs</h2>
+                                <ul>
+                                    <li><a href="/HomeAbout/Index"><i class="fas fa-angle-right me-1"></i>Hakkımızda</a></li>
+                                    <li><a href="/Project/ProjectList"><i class="fas fa-angle-right me-1"></i>İlanlar</a></li>
+                                    <li><a href="/Account/SignIn"><i class="fas fa-angle-right me-1"></i>Giriş Yap</a></li>
+                                    <li><a href="/Account/SignUp"><i class="fas fa-angle-right me-1"></i>Kayıt Ol</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="footer-widget footer-menu">
+                                <h2 class="footer-title">Diğer Linkler</h2>
+                                <ul>
+                                    <li><a href="/Freelancer/Index"><i class="fas fa-angle-right me-1"></i> Freelancerlar</a></li>
+                                    <li><a href="/Project/ProjectList"><i class="fas fa-angle-right me-1"></i> İş İlanları</a></li>
+                                    <li><a href="/Project/PostProject"><i class="fas fa-angle-right me-1"></i>İş İlanı Ver</a></li>
+                                    <li><a href="#"><i class="fas fa-angle-right me-1"></i>İş Detayları</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Footer Top -->
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 ">
+                                <div class="footer-bottom-logo">
+                                    <a href="/Home/Index" class="menu-logo">
+                                        <img src="~/template-html/assets/img/logo.png" class="img-fluid" alt="Logo">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Copyright -->
+                </div>
+            </div>
+            <!-- /Footer Bottom -->
+        </footer>
+        <!-- /Footer -->
+
+    </div>
+    <!-- /Main Wrapper -->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="ti-angle-up"><img src="~/template-html/assets/img/icon/top-icon.svg" class="img-fluid" alt=""></span>
+    </button>
+    <!-- jQuery -->
+    <script src="~/template-html/assets/js/jquery-3.6.0.min.js"></script>
+
+    <script src="~/template-html/assets/js/jquery-3.6.1.min.js"></script>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="~/template-html/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="~/template-html/assets/js/owl.carousel.min.js"></script>
+
+    <!-- counterup JS -->
+    <script src="~/template-html/assets/js/jquery.waypoints.js"></script>
+    <script src="~/template-html/assets/js/jquery.counterup.min.js"></script>
+
+    <!-- Aos -->
+    <script src="~/template-html/assets/plugins/aos/aos.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="~/template-html/assets/plugins/select2/js/select2.min.js"></script>
+
+    <!-- Slick JS -->
+    <script src="~/template-html/assets/js/slick.js"></script>
+
+    <!-- Custom JS -->
+    <script src="~/template-html/assets/js/script.js"></script>
+
+    <!-- jQuery -->
+    <!-- Bootstrap Core JS -->
+    <script src="~/template-html/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Feather Icon JS -->
+    <script src="~/template-html/assets/js/feather.min.js"></script>
+
+</body>
+</html>

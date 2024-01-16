@@ -1,0 +1,297 @@
+﻿@model ProjectDetailViewModel
+@{
+    ViewData["Title"] = "MyProjectDetail";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="content content-page">
+    <div class="container-fluid">
+        <div class="row mx-5">
+
+
+            <!-- /sidebar -->
+
+            <div class="col-lg-12 col-md-12">
+
+
+                <!-- project list -->
+                <div class="my-projects">
+
+
+                    <!-- project list -->
+                    <div class="my-projects-list pro-list-view">
+                        <div class="row">
+                            @if (Model.Project.ProjectState == "İş Alındı")
+                            {
+                                <div class="col-lg-10 flex-wrap">
+                                    <div class="projects-card flex-fill">
+                                        <div class="card-body">
+                                            <div class="projects-details align-items-center">
+                                                <div class="project-info">
+                                                    <h2>@Model.Project.ProjectName</h2>
+                                                    <div class="customer-info">
+                                                        <ul class="list-details">
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>Çalışma Şekli</p>
+                                                                    <h5>@Model.Project.PriceType</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>Konum</p>
+                                                                    <h5>@Model.Project.City-@Model.Project.Country</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>İlanın Kaldırılma Tarihi</p>
+                                                                    <h5>@Model.Project.EndDate</h5>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="project-hire-info">
+                                                    <div class="content-divider"></div>
+                                                    <div class="projects-amount">
+                                                        <h3>@Model.Project.Price ₺</h3>
+                                                        <h5>@Model.Project.ProjectDuration @Model.Project.PriceType</h5>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 d-flex flex-wrap">
+                                    <div class="projects-card flex-fill">
+                                        <div class="card-body">
+                                            @foreach (var item in Model.Freelancers)
+                                            {
+                                                @if (Model.Project.FreelancerId == item.FreelancerID)
+                                                {
+                                                    <div class="prj-proposal-count text-center hired">
+                                                        <img src="/userimages/@item.UserImage" alt="" class="img-fluid">
+                                                        <p class="mb-2">@item.NameSurname</p>
+                                                        <a href="/Freelancer/FreelancerDetail/@item.FreelancerID" class="btn btn-chat">İncele</a>
+                                                    </div>
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+
+
+                                <div class="col-12 flex-wrap">
+                                    <div class="projects-card flex-fill">
+                                        <div class="card-body">
+                                            <div class="projects-details align-items-center">
+                                                <div class="project-info">
+                                                    <h2>@Model.Project.ProjectName</h2>
+                                                    <div class="customer-info">
+                                                        <ul class="list-details">
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>Çalışma Şekli</p>
+                                                                    <h5>@Model.Project.PriceType</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>Konum</p>
+                                                                    <h5>@Model.Project.City-@Model.Project.Country</h5>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="slot">
+                                                                    <p>İlanın Kaldırılma Tarihi</p>
+                                                                    <h5>@Model.Project.EndDate</h5>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="project-hire-info">
+                                                    <div class="content-divider"></div>
+                                                    <div class="projects-amount">
+                                                        <h3>@Model.Project.Price ₺</h3>
+                                                        <h5>@Model.Project.ProjectDuration @Model.Project.PriceType</h5>
+                                                    </div>
+                                                    @* <div class="content-divider"></div>
+                                                <div class="projects-action text-center">
+                                                <a href="#" class="hired-detail">19 JUN 2021</a>
+                                                <form method="post" asp-controller="Project" asp-action="ApplyProject">
+                                                <input type="hidden" name="projectId" value="@Model.Project.ProjectID" />
+                                                <button type="submit" class="projects-btn">İşe Başvur</button>
+                                                </form>
+
+                                                </div> *@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <!-- /project list -->
+
+                </div>
+
+                <div class="pro-post widget-box">
+                    <h3 class="pro-title">İlan Açıklaması</h3>
+                    <div class="pro-overview">
+                        <div class="pro-content">
+                            <div class="tags">
+                                <span class="badge badge-pill badge-design">@Model.Project.SkillCalledSt</span>
+
+                            </div>
+                        </div>
+                        <p>@Model.Project.Description</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- project list -->
+
+        </div>
+        @if (Model.Project.ProjectState == "İş Alındı")
+        {
+
+            var freelancerId = Model.Project.FreelancerId;
+            <div class="row mx-5">
+                <h2>İşi Alan Freelancer</h2>
+                @{
+                    var freelancer = Model.Project.AppliedFreelancers.FirstOrDefault(x => x.FreelancerID == freelancerId);
+                }
+
+                <div class="col-md-6 col-lg-6 col-xl-4">
+                    <div class="freelance-widget">
+                        <div class="freelance-content">
+                            <a data-bs-toggle="modal" href="#rating" class="favourite"><i class="fas fa-star"></i></a>
+                            <div class="freelance-img">
+                                <a href="/Freelancer/FreelancerDetail/@freelancer.FreelancerID">
+                                    <img src="/userimages/@freelancer.UserImage" alt="User Image">
+                                    <span class="verified"><i class="fas fa-check-circle"></i></span>
+                                </a>
+                            </div>
+                            <div class="freelance-info">
+                                <h3><a href="/Freelancer/FreelancerDetail/@freelancer.FreelancerID">@freelancer.NameSurname</a></h3>
+                                <div class="freelance-specific">@freelancer.Title</div>
+                                <div class="freelance-location"><i class="fas fa-map-marker-alt me-1"></i>@freelancer.Notification</div>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="average-rating">@freelancer.Rating (32)</span>
+                                </div>
+                                <div class="freelance-tags">
+                                    <a href="javascript:void(0);"><span class="badge badge-pill badge-design">@freelancer.Bagdet1</span></a>
+                                </div>
+                                <div class="freelancers-price">@freelancer.Price₺ / @freelancer.WorkModel</div>
+                            </div>
+                        </div>
+
+                        <div class="cart-hover">
+
+                            <button type="submit" class="btn btn-dark" tabindex="-1">İşe Alındı</button>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        }
+        else
+        {
+
+
+
+
+
+
+            <div class="row mx-5">
+                <h2>İlana Başvuran Freelancerlar</h2>
+                @foreach (var freelancer in Model.Project.AppliedFreelancers)
+                {
+                    <div class="col-md-6 col-lg-6 col-xl-4">
+                        <div class="freelance-widget">
+                            <div class="freelance-content">
+                                <a data-bs-toggle="modal" href="#rating" class="favourite"><i class="fas fa-star"></i></a>
+                                <div class="freelance-img">
+                                    <a href="/Freelancer/FreelancerDetail/@freelancer.FreelancerID">
+                                        <img src="/userimages/@freelancer.UserImage" alt="User Image">
+                                        <span class="verified"><i class="fas fa-check-circle"></i></span>
+                                    </a>
+                                </div>
+                                <div class="freelance-info">
+                                    <h3><a href="/Freelancer/FreelancerDetail/@freelancer.FreelancerID">@freelancer.NameSurname</a></h3>
+                                    <div class="freelance-specific">@freelancer.Title</div>
+                                    <div class="freelance-location"><i class="fas fa-map-marker-alt me-1"></i>@freelancer.Notification</div>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="average-rating">@freelancer.Rating (32)</span>
+                                    </div>
+                                    <div class="freelance-tags">
+                                        <a href="javascript:void(0);"><span class="badge badge-pill badge-design">@freelancer.Bagdet1</span></a>
+                                    </div>
+                                    <div class="freelancers-price">@freelancer.Price₺ / @freelancer.WorkModel</div>
+                                </div>
+                            </div>
+
+                            <div class="cart-hover">
+
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <form method="Post" asp-action="ApprovedProject" asp-controller="Project">
+                                            <input type="hidden" name="freelancerId" value="@freelancer.FreelancerID" />
+                                            <input type="hidden" name="projectId" value="@Model.Project.ProjectID" />
+                                            <button type="submit" class="btn-cart" tabindex="-1">İşe Al</button>
+                                        </form>
+                                    </div>
+
+
+                                    <div class="col-6">
+                                        <form method="Post" asp-action="RejectedProject" asp-controller="Project">
+                                            <input type="hidden" name="freelancerId" value="@freelancer.FreelancerID" />
+                                            <input type="hidden" name="projectId" value="@Model.Project.ProjectID" />
+                                            <button type="submit" class="btn-cart"  tabindex="-1">Reddet</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                                @*  <button type="submit" class="btn-cart" tabindex="-1">İşe Al</button> *@
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,69 @@
+﻿@model SendMessageViewModel
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="select-project mb-4">
+					<form method="Post">
+						<div class="title-box widget-box">
+							
+							<!-- Add Links -->
+							<div class="title-content">
+								<div class="title-detail">
+									<h3>Kime</h3>
+									<div class="form-group mb-0">
+										<select class="form-select mb-2" id="workModel" asp-for="Message.ReceiverID" data-placeholder="Çalışma Modeli Belirleyiniz">
+											<option value="">Seçiniz</option>
+											@foreach(var item in Model.Users)
+											{
+												<option value="@item.Id">@item.Name @item.Surname</option>
+											}
+											
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="title-content">
+								<div class="title-detail">
+									<h3>Konu</h3>
+									<div class="form-group mb-0">
+										<input type="text" class="form-control" asp-for="Message.Subject" placeholder="Konu Giriniz">
+									</div>
+								</div>
+							</div>
+							<!-- /Add Links -->
+							<!-- Project Title -->
+							<div class="title-content pb-0">
+								<div class="title-detail">
+									<h3>İçerik </h3>
+									<div class="form-group mb-0">
+										<textarea class="form-control summernote" asp-for="Message.MessageDetails" rows="6"></textarea>
+									</div>
+								</div>
+							</div>
+							<!-- /Project Title -->
+
+							<div class="row">
+								<div class="col-md-12 text-end">
+									<div class="btn-item">
+										<button type="submit" class="btn next-btn">Gönder</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- Project Title -->
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Page Content -->

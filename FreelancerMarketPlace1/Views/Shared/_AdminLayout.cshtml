@@ -1,0 +1,169 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Kofejob </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/AdminLayout/assets/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/css/bootstrap.min.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/AdminLayout/assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Feather CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/css/feather.css">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/plugins/select2/css/select2.min.css">
+
+    <!-- Date Tine Picker  CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/css/bootstrap-datetimepicker.min.css">
+
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/plugins/datatables/datatables.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="~/AdminLayout/assets/css/style.css">
+
+</head>
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Header -->
+        <div class="header">
+
+            <!-- Logo -->
+            <div class="header-left">
+                <a href="/Home/Index" class="logo">
+                    <img src="~/AdminLayout/assets/img/logo.png" alt="Logo">
+                </a>
+                <a href="~/AdminLayout/index.html" class="logo logo-small">
+                    <img src="~/AdminLayout/assets/img/logo-small.png" alt="Logo" width="30" height="30">
+                </a>
+                <!-- Sidebar Toggle -->
+                <a href="javascript:void(0);" id="toggle_btn">
+                    <i class="feather-chevrons-left"></i>
+                </a>
+                <!-- /Sidebar Toggle -->
+                <!-- Mobile Menu Toggle -->
+                <a class="mobile_btn" id="mobile_btn">
+                    <i class="feather-chevrons-left"></i>
+                </a>
+                <!-- /Mobile Menu Toggle -->
+            </div>
+            <!-- /Logo -->
+            <!-- Search -->
+            <div class="top-nav-search">
+                <form>
+                    <input type="text" class="form-control" placeholder="Ara...">
+                    <button class="btn" type="submit"><i class="feather-search"></i></button>
+                </form>
+            </div>
+            <!-- /Search -->
+            <!-- Header Menu -->
+            <ul class="nav user-menu">
+
+                <!-- User Menu -->
+                <li class="nav-item dropdown has-arrow main-drop">
+                    <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                        <span class="user-img">
+                            <img src="~/AdminLayout/assets/img/profiles/avatar-07.jpg" alt="">
+                            <span class="status online"></span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Account/LogOut"><i data-feather="log-out" class="me-1"></i> Çıkış Yap!</a>
+                    </div>
+                </li>
+                <!-- /User Menu -->
+
+            </ul>
+            <!-- /Header Menu -->
+
+        </div>
+        <!-- /Header -->
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="/Admin/Index"><i data-feather="home"></i> <span>Dashboard</span></a>
+                        </li>
+                        <li>
+                            <a href="/Admin/CompanyList"><i data-feather="user"></i> <span>Kullanıcılar</span></a>
+
+                        </li>
+                        <li>
+                            <a href="/Admin/BagdetList"><i data-feather="database"></i> <span>İş Kolu Yönetimi</span></a>
+                        </li>
+                        <li>
+                            <a href="/Admin/UpdateHomeBanner"><i data-feather="settings"></i> <span>Banner Yönetimi</span></a>
+                        </li>
+                        <li>
+                            <a href="/Admin/HomeFeatureList"><i data-feather="award"></i> <span>2'li Banner Yönetimi</span></a>
+                        </li>
+                        <li>
+                            <a href="/AdminRole/Index"><i data-feather="pie-chart"></i> <span>Roller</span></a>
+                        </li>
+                        <li>
+                            <a href="/AdminRole/UserRoleList"><i data-feather="clipboard"></i> <span>Rol Ata</span></a>
+                        </li>
+
+                        <li>
+                            <a href="/Account/LogOut"><i data-feather="log-out"></i> <span>Çıkış Yap</span></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Sidebar -->
+        <!-- Page Wrapper -->
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                @RenderBody()
+                <!-- /Main Wrapper -->
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/AdminLayout/assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="~/AdminLayout/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Feather Icon JS -->
+    <script src="~/AdminLayout/assets/js/feather.min.js"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="~/AdminLayout/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="~/AdminLayout/assets/plugins/select2/js/select2.min.js"></script>
+
+    <!-- Datatables JS -->
+    <script src="~/AdminLayout/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/AdminLayout/assets/plugins/datatables/datatables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!-- Custom JS -->
+    <script src="~/AdminLayout/assets/js/script.js"></script>
+
+</body>
+</html>

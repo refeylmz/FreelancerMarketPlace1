@@ -1,0 +1,211 @@
+﻿@model AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var count = 0;
+    var count2 = 0;
+    var count3 = 0;
+}
+
+
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h3 class="page-title">Dashboard</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Admin/Index">Admin</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- /Page Header -->
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!--/Wizard-->
+        <div class="row">
+            <div class="col-md-4 d-flex">
+                <div class="card wizard-card flex-fill">
+                    <div class="card-body">
+                        <p class="text-primary mt-0 mb-2">Kullanıcı Sayısı</p>
+                        <h5>@ViewBag.userCount</h5>
+                        <span class="dash-widget-icon bg-1">
+                            <i class="fas fa-users"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="card wizard-card flex-fill">
+                    <div class="card-body">
+                        <p class="text-primary mt-0 mb-2">Şirket Sayısı</p>
+                        <h5>@ViewBag.companyCount</h5>
+
+                        <span class="dash-widget-icon bg-1">
+                            <i class="fas fa-th-large"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex">
+                <div class="card wizard-card flex-fill">
+                    <div class="card-body">
+                        <p class="text-primary mt-0 mb-2">Freelancer Sayısı</p>
+                        <h5>@ViewBag.freelancerCount</h5>
+
+                        <span class="dash-widget-icon bg-1">
+                            <i class="fas fa-bezier-curve"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Wizard-->
+     
+    </div>
+  
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-center"><b>Freelancerlar</b></h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>Meslek</th>
+                                <th>Şehir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.FreelancerList)
+                            {
+                                count++;
+                                <tr class="align-center">
+                                    <td>@count</td>
+                                    @if (item.UserImage == null)
+                                    {
+                                        <td><img src="/template-html/assets/img/user/avatar-1.jpg" style="width:40px; height:40px; border-radius:50%; " /> <a href="/Freelancer/FreelancerDetail/@item.FreelancerID">@item.NameSurname</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="/userimages/@item.UserImage" style="width:40px; height:40px; border-radius:50%; " /> <a href="/Freelancer/FreelancerDetail/@item.FreelancerID">@item.NameSurname</a></td>
+
+                                    }
+                                    <td>@item.Bagdet1</td>
+                                    <td>@item.City</td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="text-center"><b>Şirketler</b></h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Şirket Adı</th>
+                                <th>Yetkili Adı</th>
+                                <th>Şehir</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.CompanyList)
+                            {
+                                count2++;
+                                <tr class="align-center">
+                                    <td>@count2</td>
+                                    @if (item.CompanyImage == null)
+                                    {
+                                        <td><img src="/template-html/assets/img/user/avatar-1.jpg" style="width:40px; height:40px; border-radius:50%; " />  <a href="/Company/CompanyDetail/@item.CompanyID">@item.CompanyName</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="/userimages/@item.CompanyImage" style="width:40px; height:40px; border-radius:50%; " />  <a href="/Company/CompanyDetail/@item.CompanyID">@item.CompanyName</a></td>
+
+                                    }
+                                    <td>@item.NameSurname</td>
+                                    <td>@item.City</td>
+
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="card">
+        <div class="card-header">
+            <h6 class="text-center"><b>Son 10 İlan</b></h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Şirket Adı</th>
+                            <th>İlan Adı</th>
+                            <th>Aranılan Yetenek</th>
+                            <th>Şehir</th>
+                            <th>İlanı Gör</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model.ProjectList)
+                        {
+                            count3++;
+                            var company= Model.CompanyList.FirstOrDefault(x => x.AppUserId == item.AppUserId);
+                            <tr class="align-center">
+                                <td>@count3</td>
+                                <td><a href="/Company/CompanyDetail/@company.CompanyID">@company.CompanyName</a></td>
+                                <td>@item.ProjectName</td>
+                                <td>@item.SkillCalledSt</td>
+                                <td>@item.City</td>
+                                <td><a href="/Project/ProjectDetail/@item.ProjectID" class="btn btn-primary">İlanı Gör</a></td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

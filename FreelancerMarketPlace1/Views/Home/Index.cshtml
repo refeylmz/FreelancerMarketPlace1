@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="main-wrapper">
+    @await Component.InvokeAsync("HomeBannerPartial")
+
+    @await Component.InvokeAsync("HomeFeaturedPartial")
+
+    @await Component.InvokeAsync("HomeDevelopedProjectPartial")
+
+    @await Component.InvokeAsync("HomeProjectPartial")
+
+    @await Component.InvokeAsync("HomeDeveloperPartial")
+
+    @await Component.InvokeAsync("HomeFindJobPartial")
+</div>

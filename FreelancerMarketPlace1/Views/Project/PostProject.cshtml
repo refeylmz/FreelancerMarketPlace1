@@ -1,0 +1,156 @@
+﻿@using FreelancerMarketPlace1.Models.Model
+@model ProjectAddViewModel
+@{
+    ViewData["Title"] = "PostProject";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="select-project mb-4">
+                    <form method="Post">
+                        <div class="title-box widget-box">
+
+                            <!-- Project Title -->
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>İlan Adı</h3>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" asp-for="Project.ProjectName" placeholder="Proje Adını Girin">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Project Title -->
+                            <!-- Skills Content -->
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>Aranılan Yetenekler</h3>
+                                    <div class="form-group mb-0">
+                                        <select class="form-select mb-2" id="workModel" asp-for="Project.SkillCalledSt" data-placeholder="Seçiniz">
+                                            <option value="">Seçiniz</option>
+                                            @foreach (var item in Model.Bagdets)
+                                            {
+                                                <option value="@item.BagdetName">@item.BagdetName</option>
+
+                                            }
+                                        </select>
+
+                                        <p class="text-muted mb-0">İş için ihtiyaç duyulan becerileri girin</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Skills Content -->
+                            <!-- Project Period Content -->
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>İlanın Yayın Dönemi</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="filter-widget mb-0" id="period_date">
+
+                                                <div class="#">
+                                                    <p>İlanın Yayın Tarihi</p>
+                                                    <input type="date" class="form-control datetimepicker" asp-for="Project.StartDate" placeholder="Select Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="filter-widget mb-0" id="period_date">
+
+                                                <div class="#">
+                                                    <p>İlanın Kaldırılma Tarihi</p>
+                                                    <input type="date" class="form-control datetimepicker" asp-for="Project.EndDate" placeholder="Select Date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title-content">
+                                <div class="title-detail">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h3>Ülke </h3>
+                                            <div class="form-group mb-0">
+                                                <input type="text" class="form-control" asp-for="Project.Country" placeholder="Şehir Belirtiniz">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Şehir </h3>
+                                            <div class="form-group mb-0">
+                                                <input type="text" class="form-control" asp-for="Project.City" placeholder="Şehir Belirtiniz">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- /Project Period Content -->
+                            <!-- /Add Document -->
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>Çalışma Modeli</h3>
+                                    <div class="form-group mb-0">
+                                        <select class="form-select mb-2" id="workModel" asp-for="Project.PriceType" data-placeholder="Çalışma Modeli Belirleyiniz">
+                                            <option value="">Seçiniz</option>
+                                            <option value="Tam Zamanlı">Tam Zamanlı</option>
+                                            <option value="Günlük">Günlük</option>
+                                            <option value="Saatlik">Saatlik</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Add Document -->
+                            <!-- Add Links -->
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>Ücret</h3>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" asp-for="Project.Price" placeholder="Ücret Belirleyiniz">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title-content">
+                                <div class="title-detail">
+                                    <h3>Proje Süresi</h3>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" asp-for="Project.ProjectDuration" placeholder="Proje Süresi Giriniz">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Add Links -->
+                            <!-- Project Title -->
+                            <div class="title-content pb-0">
+                                <div class="title-detail">
+                                    <h3>İş İlanı Hakkında Açıklama Yazınız </h3>
+                                    <div class="form-group mb-0">
+                                        <textarea class="form-control summernote" asp-for="Project.Description" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /Project Title -->
+
+                            <div class="row">
+                                <div class="col-md-12 text-end">
+                                    <div class="btn-item">
+                                        <button type="submit" class="btn next-btn">Yayınla</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Project Title -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

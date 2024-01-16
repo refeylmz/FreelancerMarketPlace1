@@ -1,0 +1,361 @@
+﻿@model FreelancerUpdateViewModel
+@{
+    ViewData["Title"] = "UpdateFreelancer";
+    // Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<!-- https://materializecss.com/icons.html -->
+<!-- /Breadcrumb -->
+<!-- Page Content -->
+
+
+<div class="page-title">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Profil Bilgilerim</h3>
+        </div>
+        <div class="col-md-6 text-end">
+            @* <a href="~/template-html/post-project.html" class="btn btn-primary back-btn mb-4">Post a Project</a> *@
+        </div>
+        <form method="post" class="mb-10" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Freelancer.FreelancerID" />
+            <input type="hidden" asp-for="Freelancer.UserImage" />
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Ad Soyad</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.NameSurname" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Cinsiyet</label>
+                        <div class="col-md-10">
+                            <select class="form-select mb-2" id="gender" asp-for="Freelancer.Gender" data-control="select2" data-hide-search="false" data-placeholder="Seçiniz">
+                                <option value="">Seçiniz</option>
+                                <option value="Kadın">Kadın</option>
+                                <option value="Erkek">Erkek</option>
+                           
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Meslek</label>
+                        <div class="col-md-10">
+                            <select class="form-select mb-2" id="bagdet1" asp-for="Freelancer.Bagdet1" data-control="select2" data-hide-search="false" data-placeholder="Seçiniz">
+                                <option value="">Seçiniz</option>
+                                @foreach (var item in Model.Bagdet1)
+                                {
+                                    <option value="@item.BagdetName">@item.BagdetName</option>
+
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+                    @* <div class="form-group row">
+                        <label class="col-form-label col-md-2">Mesleki Yetenek</label>
+                        <!--end::Label-->
+                        <!--begin::Select2-->
+                        <div class="col-md-10">
+                            <div   class="form-check">
+                                @foreach (var item in Model.Skills)
+                                {
+                                    var isChecked = Model.SelectedSkill != null && Model.SelectedSkill.Contains(item.SkillID);
+
+                                    <input type="checkbox" name="SelectedSkill[]" value="@item.SkillID" @(isChecked ? "checked" : "") />
+                                    <label class="form-check-label" for="inlineCheckbox1">@item.SkillName</label>
+                                    <br />
+                                }
+                                
+                            </div>
+                           
+
+                        </div>
+                       
+                    </div>
+                     *@
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Çalışma Modeli</label>
+                        <div class="col-md-10">
+                            <select class="form-select mb-2" id="workModel" asp-for="Freelancer.WorkModel"   data-placeholder="Seçiniz">
+                                <option value="">Seçiniz</option>
+                                <option value="Tam Zamanlı">Tam Zamanlı</option>
+                                <option value="Günlük">Günlük</option>
+                                <option value="Saatlik">Saatlik</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Ücret Beklentisi</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.Price" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Fotoğraf Düzenle</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" asp-for="@Model.FileImage">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Ülke</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.Country" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Şehir</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.City" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">İlçe</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.Notification" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Tecrübe Süresi</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.ExperienceDuration" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Sosyal Medya Linki</label>
+                        <div class="col-md-10">
+                            <input type="text" asp-for="Freelancer.SocialLink" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-form-label col-md-2">Açıklama</label>
+                        <div class="col-md-10">
+                            <textarea asp-for="Freelancer.Description" rows="5" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+
+            <br />
+            <button type="submit" class="btn btn-primary">Bilgilerimi Kaydet</button>
+            <br />
+        </form>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    
+    // $(document).ready(function () {
+    //     // function updateSkills(filteredSkills) {
+    //     //     // Filtrelenmiş Skills verilerini bir liste olarak görüntüle
+    //     //     var skillsList = filteredSkills.map(function (skill) {
+    //     //         return '<input type="checkbox" name="SelectedSkill[]" value="' + skill.skillID + '" />' +
+    //     //             '<label class="form-check-label" for="inlineCheckbox1">' + skill.skillName + '</label><br />';
+    //     //     });
+
+    //     //     // Liste elemanlarını bir string olarak birleştir
+    //     //     var skillsListHTML = skillsList.join('');
+
+    //     //     // Örneğin, bir div içine ekle
+    //     //     $('#skillsListContainer').html(skillsListHTML);
+    //     // }
+    //     function updateSkills(skillData) {
+    //         // Filtrelenmiş Skills verilerini bir liste olarak görüntüle
+    //         var skillsList = skillData.map(function (skill) {
+    //             return '<input type="checkbox" name="SelectedSkill[]" value="' + skill.skillID + '" ' +
+    //                 (skill.isSelected ? 'checked' : '') + ' />' +
+    //                 '<label class="form-check-label" for="inlineCheckbox1">' + skill.skillName + '</label><br />';
+    //         });
+
+    //         // Liste elemanlarını bir string olarak birleştir
+    //         var skillsListHTML = skillsList.join('');
+
+    //         // Örneğin, bir div içine ekle
+    //         $('#skillsListContainer').html(skillsListHTML);
+    //     }
+
+    //     // Sayfa yüklendiğinde çalışacak kod
+    //     var initialBagdet1 = $('#bagdet1').val();
+
+    //     // Eğer initialBagdet1 değeri boş değilse, AJAX isteği yap
+    //     if (initialBagdet1) {
+    //         $.ajax({
+    //             type: 'POST', // ya da 'GET' kullanabilirsiniz
+    //             url: '/Skill/GetSkillSeries',
+    //             data: { bagdetId: initialBagdet1 },
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 // AJAX isteği başarılıysa, gelen veriyi kullanarak sayfayı güncelle
+    //                 updateSkills(data);
+    //             },
+    //             error: function (error) {
+    //                 console.log(error);
+    //             }
+    //         });
+    //     }
+    //     $("#bagdet1").change(function () {
+    //         var selectedSkillId = $(this).val();
+
+
+    //         console.log(selectedSkillId);
+    //         // AJAX isteği ile marka serilerini alın
+    //         $.ajax({
+    //             url: '/Skill/GetSkillSeries', // İstek gönderilecek URL'yi belirtin
+    //             type: 'POST',
+    //             data: { bagdetId: selectedSkillId }, // Seçilen marka Id'sini gönderin
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 // AJAX isteği başarılıysa, gelen veriyi kullanarak sayfayı güncelle
+    //                 // Örneğin, Skills checkbox'larını güncelle
+    //                 console.log(data);
+    //                 updateSkills(data);
+    //             },
+    //             error: function (error) {
+    //                 console.log(error);
+    //             }
+    //         });
+    //     });
+        
+    // });
+
+    // $(document).ready(function () {
+    //     function updateSkillsContainer(skillData) {
+    //         // Filtrelenmiş Skills verilerini bir liste olarak görüntüle
+    //         var skillsList = skillData.map(function (skill) {
+    //             return '<input type="checkbox" name="SelectedSkill[]" value="' + skill.skillID + '" ' +
+    //                 (skill.isSelected ? 'checked' : '') + ' />' +
+    //                 '<label class="form-check-label" for="inlineCheckbox1">' + skill.skillName + '</label><br />';
+    //         });
+
+    //         // Liste elemanlarını bir string olarak birleştir
+    //         var skillsListHTML = skillsList.join('');
+
+    //         // Örneğin, bir div içine ekle
+    //         $('#skillsListContainer').html(skillsListHTML);
+    //     }
+
+    //     // Sayfa yüklendiğinde ve #bagdet1 değiştiğinde aynı AJAX isteğini kullanarak veriyi güncelle
+    //     function getAndUpdateSkills(bagdetId) {
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: '/Skill/GetSkillSeries',
+    //             data: { bagdetId: bagdetId },
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 // AJAX isteği başarılıysa, gelen veriyi kullanarak sayfayı güncelle
+    //                 updateSkillsContainer(data);
+    //             },
+    //             error: function (error) {
+    //                 console.log(error);
+    //             }
+    //         });
+    //     }
+
+    //     // Sayfa yüklendiğinde çalışacak kod
+    //     var initialBagdet1 = $('#bagdet1').val();
+
+    //     // Eğer initialBagdet1 değeri boş değilse, AJAX isteği yap
+    //     if (initialBagdet1) {
+    //         getAndUpdateSkills(initialBagdet1);
+    //     }
+
+    //     // Bagdet1 değiştiğinde çalışacak kod
+    //     $("#bagdet1").change(function () {
+    //         var selectedSkillId = $(this).val();
+    //         console.log(selectedSkillId);
+
+    //         // AJAX isteği ile marka serilerini alın
+    //         getAndUpdateSkills(selectedSkillId);
+    //     });
+    // });
+
+    // $(document).ready(function () {
+    //     var selectedSkillsCache = []; // Seçili olan skill'leri saklayan cache
+    //     var isInitialRequestMade = false; // İlk AJAX isteği yapıldı mı?
+
+    //     function updateSkillsContainer(skillData) {
+    //         // Checkbox'ları temizle
+    //         $('input[name="SelectedSkill[]"]').prop('checked', false);
+
+    //         // Filtrelenmiş Skills verilerini bir liste olarak görüntüle
+    //         var skillsList = skillData.map(function (skill) {
+    //             return '<input type="checkbox" name="SelectedSkill[]" value="' + skill.skillID + '" ' +
+    //                 (skill.isSelected ? 'checked' : '') + ' />' +
+    //                 '<label class="form-check-label" for="inlineCheckbox1">' + skill.skillName + '</label><br />';
+    //         });
+
+    //         // Liste elemanlarını bir string olarak birleştir
+    //         var skillsListHTML = skillsList.join('');
+
+    //         // Örneğin, bir div içine ekle
+    //         $('#skillsListContainer').html(skillsListHTML);
+    //     }
+        
+    //     function getAndUpdateSkills(bagdetId) {
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: '/Skill/GetSkillSeries',
+    //             data: { bagdetId: bagdetId },
+    //             dataType: 'json',
+    //             success: function (data) {
+    //                 // Seçili olan skill'leri sakla
+    //                 selectedSkillsCache = data.filter(skill => skill.isSelected).map(skill => skill.skillID);
+
+    //                 // AJAX isteği başarılıysa, gelen veriyi kullanarak sayfayı güncelle
+    //                 updateSkillsContainer(data);
+    //             },
+    //             error: function (error) {
+    //                 console.log(error);
+    //             }
+    //         });
+    //     }
+    //     function updateSelectedSkillsCache(data) {
+    //         // Seçili olan skill'leri sakla
+    //         selectedSkillsCache = data.filter(skill => skill.isSelected).map(skill => skill.skillID);
+    //     }
+    //     // Sayfa yüklendiğinde çalışacak kod
+    //     var initialBagdet1 = $('#bagdet1').val();
+
+    //     // Eğer initialBagdet1 değeri boş değilse ve ilk istek yapılmadıysa, AJAX isteği yap
+    //     if (initialBagdet1 && !isInitialRequestMade) {
+    //         getAndUpdateSkills(initialBagdet1);
+    //         isInitialRequestMade = true; // İlk istek yapıldı olarak işaretle
+    //     }
+
+    //     // Bagdet1 değiştiğinde çalışacak kod
+    //     $("#bagdet1").change(function () {
+    //         var selectedSkillId = $(this).val();
+    //         console.log(selectedSkillId);
+
+    //         // AJAX isteği ile marka serilerini alın
+    //         getAndUpdateSkills(selectedSkillId);
+    //     });
+    // });
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+

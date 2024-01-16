@@ -1,0 +1,56 @@
+﻿@model BagdetListViewModel
+@{
+    ViewData["Title"] = "BagdetList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+       
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>İş Kolu</th>
+                           
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.Bagdets)
+                            {
+                                <tr class="align-center">
+                                    <td>@item.BagdetID</td>
+                                    @if (item.ImageUrl == null)
+                                    {
+                                        <td><img src="/template-html/assets/img/user/avatar-1.jpg" style="width:40px; height:40px; border-radius:50%; " /> @item.BagdetName</td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="/userimages/@item.ImageUrl" style="width:40px; height:40px; border-radius:50%; " /> @item.BagdetName</td>
+
+                                    }
+                                    
+                                    <td><a href="/Admin/UpdateBagdet/@item.BagdetID" class="btn btn-success">Güncelle</a></td>
+                                    <td><a href="/Admin/DeleteBagdet/@item.BagdetID" class="btn btn-danger">Sil</a></td>
+                                </tr>
+                            }
+
+
+
+                        </tbody>
+                    </table>
+                    
+                </div>
+                <a href="/Admin/AddBagdet/" class="btn btn-primary">İş Kolu Ekle</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

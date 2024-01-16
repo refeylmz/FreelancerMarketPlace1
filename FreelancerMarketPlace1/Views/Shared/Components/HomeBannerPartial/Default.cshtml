@@ -1,0 +1,68 @@
+﻿@model HomeBannerViewModel
+
+<section class="section home-banner row-middle">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8 col-lg-7">
+                <div class="banner-content aos" data-aos="fade-up">
+                    <h1>@Model.HomeBanner.Description <span class="orange-text"><br>@Model.HomeBanner.Title1</span></h1>
+                    <p>@Model.HomeBanner.Title2</p>
+                    <form class="form" asp-controller="Project" asp-action="ProjectList"  method="get" >
+                        <div class="row align-bottom">
+                            <div class="col-6 ">
+
+
+
+                                <div class="form-inner" style="padding:10px 40px; margin:9px; ">
+                                    <div class="input-group ">
+
+
+                                            <select class="form-control select" name="skillName">
+                                                <option value="">Ara</option>
+                                                @foreach (var item in Model.Bagdets)
+                                                {
+                                                    <option value="@item.BagdetName">@item.BagdetName</option>
+
+                                                }
+                                            </select>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                               
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-primary sub-btn" type="submit">Şimdi Ara!</button>
+                            </div>
+                        </div>
+                        @* <div class="form-inner">
+                            <div class="input-group">
+                                
+                                
+                                    <select class="form-control select" name="skillName">
+                                        <option value="">Ara</option>
+                                        @foreach(var item in Model.Bagdets)
+                                        {
+                                            <option value="@item.BagdetName">@item.BagdetName</option>
+
+                                        }
+                                    </select>
+                           
+                                
+                            </div>
+                            
+                        </div> *@
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-5">
+                <div class="banner-img aos" data-aos="fade-up">
+                    <img src="@Model.HomeBanner.ImageURL" class="img-fluid" alt="banner">
+                </div>
+            </div>
+        </div>
+</section>

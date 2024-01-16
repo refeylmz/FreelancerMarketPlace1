@@ -1,0 +1,45 @@
+﻿@model UpdateHomeBannerViewModel
+@{
+    ViewData["Title"] = "UpdateHomeBanner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" class="mb-10" enctype="multipart/form-data">
+    <input type="hidden" asp-for="HomeBanner.HomeBannerID" />
+    <input type="hidden" asp-for="HomeBanner.ImageURL" />
+
+    <div class="row">
+        <h4 class="text-bold">Banner Güncelleme Sayfası</h4>
+        <div class="col-md-6 mt-2">
+            <div class="form-group row">
+                <label class="col-form-label col-md-2">1. Başlık</label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="HomeBanner.Description" class="form-control">
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label class="col-form-label col-md-2">2. Başlık</label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="HomeBanner.Title1" class="form-control">
+                </div>
+            </div>
+            <br />
+            <div class="form-group row">
+                <label class="col-form-label col-md-2">3. Başlık</label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="HomeBanner.Title2" class="form-control">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Bannerı Güncelle</button>
+    <br />
+</form>
+
+
+

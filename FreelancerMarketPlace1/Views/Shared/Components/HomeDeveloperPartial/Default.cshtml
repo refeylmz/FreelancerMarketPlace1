@@ -1,0 +1,50 @@
+﻿@model List<Freelancer>
+
+
+<section class="section developer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 mx-auto">
+                <div class="section-header text-center aos" data-aos="fade-up">
+                    <p>Yetenekli kişilerle en uygun fiyata çalışın</p>
+                    <h2 class="header-title">En Çok İşe Alınan Geliştiriciler</h2>
+                </div>
+            </div>
+        </div>
+        <div id="developers-slider" class="owl-carousel owl-theme developers-slider aos" data-aos="fade-up">
+            @foreach (var item in Model)
+            {
+                <div class="freelance-widget">
+                    <div class="freelance-content">
+                        <a data-toggle="modal" href="#rating" class="favourite"><i class="fas fa-star"></i></a>
+                        <div class="freelance-img">
+                            <a href="/Freelancer/FreelancerDetail/@item.FreelancerID">
+                                <img src="~/userimages/@item.UserImage" alt="Freelancer Fotoğrafı">
+                                <span class="verified"><i class="fas fa-check-circle"></i></span>
+                            </a>
+                        </div>
+                        <div class="freelance-info">
+                            <h3><a href="/Freelancer/FreelancerDetail/@item.FreelancerID">@item.NameSurname</a></h3>
+                            <div class="freelance-specific">@item.Bagdet1</div>
+                            <div class="rating">
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span class="average-rating">5.0</span>
+                            </div>
+                            <div class="freelance-blk-location">
+                                <div class="freelancers-price">@item.Price₺ / @item.WorkModel</div>
+                                <div class="freelance-location"><i class="fas fa-map-marker-alt me-1"></i>@item.City</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-hover">
+                        <a href="/Freelancer/FreelancerDetail/@item.FreelancerID" class="btn-cart" tabindex="-1">Profili Görüntüle</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+﻿@model HomeDevelopedProject
+
+@{
+    ViewData["Title"] = "UpdateHomeFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="mb-10" enctype="multipart/form-data">
+    <input type="hidden" asp-for="@Model.HomeDevelopedProjectID" />
+    <input type="hidden" asp-for="@Model.ImageURL" />
+    <input type="hidden" asp-for="@Model.ButtonURL" />
+
+    <div class="row">
+        <h4 class="text-bold">İş Kolu Güncelleme Sayfası</h4>
+        <div class="col-md-12 mt-2">
+            <div class="form-group row">
+                <label class="col-form-label col-md-2">Başlık</label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="@Model.Title" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-form-label col-md-2">Açıklama</label>
+                <div class="col-md-10">
+                    <input type="text" asp-for="@Model.Description" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+    <br />
+</form>
+

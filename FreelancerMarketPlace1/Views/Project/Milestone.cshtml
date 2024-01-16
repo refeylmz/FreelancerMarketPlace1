@@ -1,0 +1,176 @@
+﻿@using FreelancerMarketPlace1.Models.Model
+@model List<Project>
+@{
+    ViewData["Title"] = "Milestone";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+    <div class="container">
+        <div class="row align-items-center inner-banner">
+            <div class="col-md-12 col-12 text-center">
+                <div class="breadcrumb-list">
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><img src="~/template-html/assets/img/home-icon.svg" alt="Post Author"> Home</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Employee</li>
+                            <li class="breadcrumb-item" aria-current="page">Milestones</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+<!-- Page Content -->
+<div class="content content-page">
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- sidebar -->
+            <div class="col-xl-3 col-md-4 theiaStickySidebar">
+                <div class="settings-widget">
+                    <div class="settings-header d-sm-flex flex-row flex-wrap text-center text-sm-start align-items-center">
+                        <a href="user-account-details.html"><img alt="profile image" src="~/template-html/assets/img/img-04.jpg" class="avatar-lg rounded-circle"></a>
+                        <div class="ms-sm-3 ms-md-0 ms-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
+                            <p class="mb-2">Welcome,</p>
+                            <a href="user-account-details.html"><h3 class="mb-0">John Danie S.</h3></a>
+                            <p class="mb-0">johndaniee</p>
+                        </div>
+                    </div>
+                    <div class="settings-menu">
+                        <ul>
+                            <li class="nav-item">
+                                <a href="/Project/Dashboard" class="nav-link">
+                                    <i class="material-icons">verified_user</i> Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Project/Index" class="nav-link">
+                                    <i class="material-icons">business_center</i> Projects
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Project/Review" class="nav-link">
+                                    <i class="material-icons">record_voice_over</i> Reviews
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="chats.html" class="nav-link">
+                                    <i class="material-icons">chat</i> Messages
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Project/Milestone" class="nav-link active">
+                                    <i class="material-icons">pie_chart</i> Milestones
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Project/Payment" class="nav-link">
+                                    <i class="material-icons">wifi_tethering</i> Payments
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/template-html/profile-settings.html" class="nav-link">
+                                    <i class="material-icons">settings</i> Settings
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /sidebar -->
+
+            <div class="col-xl-9 col-md-8">
+                <nav class="user-tabs mb-4">
+                    <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-project-detail.html">Overview & Discussions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="milestones.html">Milestones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="tasks.html">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="files.html">Files</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="project-payment.html">Payments</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="my-projects-view">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="">
+                                <div class="card ">
+                                    <div class="card-header">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col">
+                                                <h5 class="card-title">Milestone</h5>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-center table-hover mb-0 datatable">
+                                                <thead class="thead-pink">
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Budget</th>
+                                                        <th>Start Date</th>
+                                                        <th>End Date</th>
+                                                        <th>Paid</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var project in Model)
+                                                    {
+                                                        <tr>
+                                                            <td>@project.ProjectName</td>
+                                                            <td>@project.Price ₺</td>
+                                                            <td>@project.StartDate</td>
+                                                            <td>@project.EndDate</td>
+
+                                                            @if (@project.PaymentState == true)
+                                                            {
+                                                                <td><span class="badge badge-pill bg-success-dark"></span><b style="color:green">Paid</b></td>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <td><span class="badge badge-pill bg-success-dark"></span><b style="color:red">UnPaid</b></td>
+                                                            }
+
+
+
+
+                                                        </tr>
+
+                                                    }
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Page Content -->

@@ -1,0 +1,79 @@
+﻿@model CompanyUpdateViewModel
+
+@{
+    ViewData["Title"] = "UpdateCompany";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+<div class="page-title">
+	<div class="col-md-6">
+		<h3>Şirket Profil Bilgilerim</h3>
+	</div>
+	<div class="col-md-6 text-end">
+		@* <a href="~/template-html/post-project.html" class="btn btn-primary back-btn mb-4">Post a Project</a> *@
+	</div>
+<form method="post" class="mb-10" enctype="multipart/form-data">
+	<input type="hidden" asp-for="Company.CompanyID" />
+	<input type="hidden" asp-for="Company.CompanyImage" />
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Şirket Adı</label>
+				<div class="col-md-10">
+					<input type="text" asp-for="Company.CompanyName" class="form-control">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Ad Soyad</label>
+				<div class="col-md-10">
+					<input type="text" asp-for="Company.NameSurname" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Şehir</label>
+				<div class="col-md-10">
+					<input type="text" asp-for="Company.City" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Fotoğraf Seç</label>
+				<div class="col-md-10">
+					<input type="file" class="form-control" asp-for="@Model.FileImage">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			
+
+
+
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Tecrübe Süresi</label>
+				<div class="col-md-10">
+					<input type="text" asp-for="Company.ExperienceDuration" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Ülke</label>
+				<div class="col-md-10">
+					<input type="text" asp-for="Company.Country" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-form-label col-md-2">Hakkımızda Açıklama</label>
+				<div class="col-md-10">
+					<textarea asp-for="Company.Description" rows="3"  class="form-control"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<br />
+	<button type="submit" class="btn btn-primary">Bilgilerimi Kaydet</button>
+	<br />
+</form>
+</div>
+

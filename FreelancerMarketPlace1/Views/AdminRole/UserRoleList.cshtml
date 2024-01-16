@@ -1,0 +1,39 @@
+﻿@model List<AppUser>
+
+@{
+    ViewData["Title"] = "UserRoleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading mt-3">
+    <div class="col-lg-10">
+        <h2>Kullanıcı Rol Listesi</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-4 mt-3">
+                <div class="card">
+                    <div class="row text-center">
+                        <div class="card-body col-12">
+                            <img alt="image" class="rounded-circle m-t-xs img-fluid" src="~/adminlayout/assets/img/favicon.png">
+
+                            <h3><strong>@item.Name  @item.Surname</strong></h3>
+                            <p><i class="fa fa-envelope"></i> @item.Email</p>
+                            <address>
+                                <strong>Kullanıcı Adı : <b>@item.UserName</b></strong><br>
+                                <br>
+                                <a href="/AdminRole/AssignRole/@item.Id" class="btn btn-primary col-8">Rol Ata</a>
+                                <abbr title="Phone"></abbr>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

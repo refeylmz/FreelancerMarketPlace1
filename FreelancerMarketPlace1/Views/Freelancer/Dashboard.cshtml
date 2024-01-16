@@ -1,0 +1,43 @@
+﻿@model FreelancerDashboardViewModel
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="dashboard-sec">
+    <div class="row">
+        <div class="col-md-6 col-lg-4">
+            <div class="dash-widget">
+                <div class="dash-info">
+                    <div class="dash-widget-info">Başvurulan İlan Sayısı</div>
+                    <div class="dash-widget-count">@ViewBag.projectApplied</div>
+                </div>
+                @* <div class="dash-widget-more">
+                    <a href="manage-projects.html" class="d-flex">Daha Fazlası <i class="fas fa-arrow-right ms-auto"></i></a>
+                </div> *@
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="dash-widget">
+                <div class="dash-info">
+                    <div class="dash-widget-info">Devam Eden Proje Sayısı</div>
+                    <div class="dash-widget-count">@ViewBag.projectOngoing</div>
+                </div>
+               @*  <div class="dash-widget-more">
+                    <a href="ongoing-projects.html" class="d-flex">Daha Fazlası <i class="fas fa-arrow-right ms-auto"></i></a>
+                </div> *@
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="dash-widget">
+                <div class="dash-info">
+                    <div class="dash-widget-info">Tamamlanan Proje Sayısı</div>
+                    <div class="dash-widget-count">@ViewBag.projectCompleted</div>
+                </div>
+                @* <div class="dash-widget-more">
+                    <a href="completed-projects.html" class="d-flex">Daha Fazlası <i class="fas fa-arrow-right ms-auto"></i></a>
+                </div> *@
+            </div>
+        </div>
+    </div>
+</div>

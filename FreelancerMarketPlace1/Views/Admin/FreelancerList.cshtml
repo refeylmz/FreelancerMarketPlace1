@@ -1,0 +1,60 @@
+﻿@model FreelancerListViewModel
+@{
+    ViewData["Title"] = "FreelancerList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="subscribe-employe">
+			<ul>
+				<li><a href="/Admin/CompanyList">Şirketler </a></li>
+				<li class="active"><a href="/Admin/FreelancerList">Freelancerlar</a></li>
+			</ul>
+		</div>
+		<div class="card">
+			<div class="card-body">
+                <div class="table-responsive">
+                    <table class="table align-middle">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ad Soyad</th>
+                                <th>Meslek</th>
+                                <th>Açıklama</th>
+                                <th>Şehir</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            @foreach(var item in Model.Freelancer)
+                            {
+                                <tr class="align-center">
+                                    <td>@item.FreelancerID</td>
+                                    @if(item.UserImage==null)
+                                    {
+                                        <td><img src="/template-html/assets/img/user/avatar-1.jpg" style="width:40px; height:40px; border-radius:50%; " /> <a href="/Freelancer/FreelancerDetail/@item.FreelancerID">@item.NameSurname</a></td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="/userimages/@item.UserImage" style="width:40px; height:40px; border-radius:50%; " /> <a href="/Freelancer/FreelancerDetail/@item.FreelancerID">@item.NameSurname</a></td>
+
+                                    }
+                                    <td>@item.Bagdet1</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.City</td>
+                                    <td><a href="/Admin/DeleteFreelancer/@item.FreelancerID" class="btn btn-danger">Sil</a></td>
+                                </tr>
+                            }
+                            
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
